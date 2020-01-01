@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@toast-ui/react-grid": "^1.0.0",
+    "@toast-ui/react-grid": "^4.8.1",
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
     "iso-8859-2": "^1.0.0",
@@ -11,7 +11,7 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-redux": "^7.0.3",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^3.3.0",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
     "redux-thunk": "^2.3.0",
@@ -34,7 +34,6 @@
   ],
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-node": "^9.1.0",
