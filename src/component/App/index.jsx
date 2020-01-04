@@ -16,7 +16,7 @@ const columns = [
 const App = ({ gridData }) => {
   return (
     <>
-      <Map ncpClientId={process.env.REACT_APP_SERVICEKEY}/>
+      <Map ncpClientId="har461wdhc"/>
       <Grid
         data={gridData}
         columns={columns}
