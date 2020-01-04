@@ -1,6 +1,14 @@
 import { handleActions, createAction } from 'redux-actions'
 import axios from 'axios'
 
+
+
+//2020.0104 : naver map 신버전 기준.
+const zoomRange = [7,9,11];
+const minZoomLevel = zoomRange[0];
+const maxZoomLevel = zoomRange[zoomRange.length-1];
+
+
 const getMiseDate = (otp) => {
   console.log('getMiose', otp)
 
@@ -12,9 +20,8 @@ const getMiseDate = (otp) => {
   let country = `/country?zoomLevel=${otp.zoomLevel}&parentCd=${otp.parentCd}`
 
   let url = serverUrl +
-  (otp.zoomLevel === 2 ? country
-  : otp.zoomLevel === 4 ? sig
-  : otp.zoomLevel === 6 ? emd : "")
+  (otp.zoomLevel === minZoomLevel ? country
+  : otp.zoomLevel === maxZoomLevel ? emd : sig)
   
   return axios.request({
     headers: {

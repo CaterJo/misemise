@@ -33,15 +33,14 @@ class Map extends Component {
     const { ncpClientId, getDataAsync, _lat, _lng, zoomLevel } = this.props
 
     this.loadScriptPromise(ncpClientId).then((naver) => {
-      let zoomRange = [7, 9, 11] 
+      let zoomRange = [2, 4, 6]
       let maxZoom = zoomRange[zoomRange.length - 1]
       let minZoom = zoomRange[0]
 
-      // 전국 : 2, 시군구 :4  읍면동 : 6
+      // 전국 : 2, 시군구 :4  읍면동 : 7
       // naver.maps. PointBounds 경계 생성.
       // 인터렉션 옵션.
       const mapOptions = {
-        useStyleMap: true,
         logoControl: false,
         mapDataControl: false,
         scaleControl: false,
