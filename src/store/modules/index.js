@@ -2,7 +2,6 @@ import { handleActions, createAction } from 'redux-actions'
 import axios from 'axios'
 
 
-
 //2020.0104 : naver map 신버전 기준.
 const zoomRange = [7,9,11];
 const minZoomLevel = zoomRange[0];
@@ -22,7 +21,8 @@ const getMiseDate = (otp) => {
   let url = serverUrl +
   (otp.zoomLevel === minZoomLevel ? country
   : otp.zoomLevel === maxZoomLevel ? emd : sig)
-  
+
+
   return axios.request({
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
@@ -53,6 +53,7 @@ const GET_MISE_DATA = 'GET_MISE_DATA'
 export const getData = createAction(GET_MISE_DATA)
 
 export const getDataAsync = (otp) => dispatch => {
+
   // 주소변환.
   converLatLngToAddr(otp).then(rtn => 
      getMiseDate({ ...otp, addr: rtn })
@@ -77,7 +78,7 @@ export const getDataAsync = (otp) => dispatch => {
 const counterInitialState = {
   data: {},
   mapObj: {},
-  zoomLevel: 2,
+  zoomLevel: minZoomLevel,
   lat: 36.9257913,
   lng: 127.87798
 }
