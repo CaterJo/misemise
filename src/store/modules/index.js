@@ -11,7 +11,7 @@ const getMiseDate = (otp) => {
 
   // parentCd : 사용자가 클릭한 geoJSON의 코드값.
   // zoomLevel : 요청 레벨.
-  const serverUrl = process.env.REACT_APP_SERVER_URL
+  const serverUrl = process.env.REACT_ENV === 'dev' ? process.env.REACT_APP_SERVER_URL : ''
   const sig = `/sig?zoomLevel=${otp.zoomLevel}&parentCd=${otp.parentCd}`
   const emd = `/emd?zoomLevel=${otp.zoomLevel}&parentCd=${otp.parentCd}`
   const country = `/country?zoomLevel=${otp.zoomLevel}&parentCd=${otp.parentCd}`
@@ -19,8 +19,6 @@ const getMiseDate = (otp) => {
   const url = serverUrl +
   (otp.zoomLevel === minZoomLevel ? country
     : otp.zoomLevel === maxZoomLevel ? emd : sig)
-
-  console.log('check serverUrl' + serverUrl)
 
   return axios.request({
     headers: {
